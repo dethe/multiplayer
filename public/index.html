@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Socket Testing (open in multiple browsers)</title>
+	<!--link rel="stylesheet" type="text/css" href="css/style.css" /-->
+</head>
+
+<body id="home">
+
+	<h1>Socket Testing (open in multiple browsers)</h1>
+    <p>See Socket.io <a href="http://socket.io/#how-to-use">documentation</a> for more info</p>
+    <p>Watch the console for output</p>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost');
+        socket.on('news', function (data) {
+            console.log(data);
+            socket.emit('my other event', { my: 'data' });
+        });
+    </script>
+</body>
+</html>
